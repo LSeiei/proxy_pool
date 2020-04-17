@@ -31,6 +31,24 @@ class GetFreeProxy(object):
     """
 
     @staticmethod
+    def rsnew2():
+        try:
+            url = 'http://proxy.link/list/get/83a75dca879381a07d75881f3ca9f9c9'
+            r = requests.get(url, timeout=(20, 60))
+            if r.status_code != 200:
+                return
+
+            ip_list = r.text
+            if ip_list != "":
+                ip_list = ip_list.split("\n")
+                for _proxy in ip_list:
+                    yield _proxy
+            else:
+                print('get proxies is empty, check request permission')
+        except Exception as e:
+            print(e)
+
+    @staticmethod
     def freeProxy01():
         """
         无忧代理 http://www.data5u.com/
