@@ -84,9 +84,11 @@ def validUsefulProxy(proxy):
     """
     if isinstance(proxy, bytes):
         proxy = proxy.decode("utf8")
-    proxies = {"http": "http://{proxy}".format(proxy=proxy)}
+
+    pro = "http://{proxy}".format(proxy=proxy)
+    proxies = {"http": pro, "https": pro}
     try:
-        r = requests.get('http://www.baidu.com', proxies=proxies, timeout=10, verify=False)
+        r = requests.get('https://ipinfo.io/ip', proxies=proxies, timeout=20, verify=False)
         if r.status_code == 200:
             return True
     except Exception as e:
