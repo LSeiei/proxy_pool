@@ -33,7 +33,7 @@ class GetFreeProxy(object):
     @staticmethod
     def rsnew2():
         try:
-            url = 'http://proxy.link/list/get/46d15ff345d75f0a1a03168af5a29cc2'
+            url = 'http://proxy.link/list/get/bba7c3a0777c4d13d2e772debc72dbce'
             r = requests.get(url, timeout=(20, 60))
             if r.status_code != 200:
                 return
